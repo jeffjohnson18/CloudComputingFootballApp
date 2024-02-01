@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarterbacks</title>
+</head>
+<body>
+    <h1>Quarterbacks List</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Player Name</th>
+                <th>Team Name</th>
+                <th>ESPN Headshot URL</th>
+                <th>Yahoo Projection</th>
+                <th>ESPN Projection</th>
+                <th>Sleeper Projection</th>
+                <th>Team ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="quarterback : ${quarterbacks}">
+                <td th:text="${quarterback.quarterback_id}"></td>
+                <td th:text="${quarterback.player_name}"></td>
+                <td th:text="${quarterback.team_name}"></td>
+                <td th:text="${quarterback.espn_headshot_url}"></td>
+                <td th:text="${quarterback.yahoo_proj}"></td>
+                <td th:text="${quarterback.espn_proj}"></td>
+                <td th:text="${quarterback.sleeper_proj}"></td>
+                <td th:text="${quarterback.team_id}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
