@@ -5,35 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quarterbacks</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Home.css"> <!-- Make sure this path is correct -->
 </head>
 <body>
-    <h1>Quarterbacks List</h1>
+    <div th:replace="navbar :: navbar"></div>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Player Name</th>
-                <th>Team Name</th>
-                <th>ESPN Headshot URL</th>
-                <th>Yahoo Projection</th>
-                <th>ESPN Projection</th>
-                <th>Sleeper Projection</th>
-                <th>Team ID</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="quarterback : ${quarterbacks}">
-                <td th:text="${quarterback.quarterback_id}"></td>
-                <td th:text="${quarterback.player_name}"></td>
-                <td th:text="${quarterback.team_name}"></td>
-                <td th:text="${quarterback.espn_headshot_url}"></td>
-                <td th:text="${quarterback.yahoo_proj}"></td>
-                <td th:text="${quarterback.espn_proj}"></td>
-                <td th:text="${quarterback.sleeper_proj}"></td>
-                <td th:text="${quarterback.team_id}"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container mt-5">
+        <h1>Quarterbacks</h1>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col"> </th>
+                    <th scope="col">Player Name</th>
+                    <th scope="col">Team Name</th>
+                    <th scope="col">ESPN Projections</th>
+                    <th scope="col">Sleeper Projections</th>
+                    <th scope="col">Yahoo Projections</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="quarterback : ${quarterbacks}">
+                    <td>
+                        <img th:src="${quarterback.espn_headshot_url}" alt="Player Headshot" style="max-width: 100px; max-height: 100px;">
+                    </td>
+                    <td th:text="${quarterback.player_name}"></td>
+                    <td th:text="${quarterback.team_name}"></td>
+                    <td th:text="${quarterback.espn_proj}"></td>
+                    <td th:text="${quarterback.sleeper_proj}"></td>
+                    <td th:text="${quarterback.yahoo_proj}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
