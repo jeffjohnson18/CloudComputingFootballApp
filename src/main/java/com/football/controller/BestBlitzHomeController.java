@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class BestBlitzHomeController {
 
-    @GetMapping("/bestblitzhome")
+    @GetMapping("/")
     public String display(Model model){
         return "BestBlitzHome";
     }
